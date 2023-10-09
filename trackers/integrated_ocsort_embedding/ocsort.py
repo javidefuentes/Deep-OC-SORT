@@ -409,10 +409,10 @@ class OCSort(object):
             dets_embs = self.embedder.compute_embedding(img_numpy, dets[:, :4], tag)
 
         # CMC
-        if not self.cmc_off:
-            transform = self.cmc.compute_affine(img_numpy, dets[:, :4], tag)
-            for trk in self.trackers:
-                trk.apply_affine_correction(transform)
+        # if not self.cmc_off:
+        #     transform = self.cmc.compute_affine(img_numpy, dets[:, :4], tag)
+        #     for trk in self.trackers:
+        #         trk.apply_affine_correction(transform)
 
         trust = (dets[:, 4] - self.det_thresh) / (1 - self.det_thresh)
         af = self.alpha_fixed_emb
